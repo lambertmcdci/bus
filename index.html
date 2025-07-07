@@ -29,6 +29,7 @@
 
     /* Hero Section */
     header.hero {
+      position: relative;
       height: 100vh;
       display: flex;
       align-items: center;
@@ -36,12 +37,15 @@
       background: #e8e6df;
       text-align: center;
       padding: 60px 24px;
+      overflow: hidden;
     }
     header.hero h1 {
       font-size: 3.5rem;
       font-weight: 600;
       color: #1a1a1a;
       margin-bottom: 20px;
+      position: relative;
+      z-index: 10;
     }
     header.hero p {
       font-size: 1.25rem;
@@ -50,6 +54,8 @@
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      position: relative;
+      z-index: 10;
     }
     header.hero a.button {
       background-color: #2f4f4f;
@@ -58,9 +64,27 @@
       border-radius: 30px;
       font-weight: 600;
       transition: background 0.3s ease;
+      position: relative;
+      z-index: 10;
     }
     header.hero a.button:hover {
       background-color: #1c3535;
+    }
+
+    /* Video im Hero */
+    .gebirge-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120%;
+      height: auto;
+      max-height: 100vh;
+      transform: translate(-50%, -50%) scale(1);
+      object-fit: cover;
+      z-index: 1;
+      will-change: transform;
+      transition: transform 0.3s ease;
+      pointer-events: none;
     }
 
     /* Section Base */
@@ -142,11 +166,33 @@
       padding: 40px 20px;
       font-size: 0.9rem;
     }
+
+    /* SVG Pfad Wald */
+    #wald-pfad-container {
+      max-width: 700px;
+      margin: 40px auto 80px;
+      text-align: center;
+    }
+    svg#wald-pfad {
+      width: 100%;
+      height: 200px;
+      stroke: #2f4f4f;
+      stroke-width: 4;
+      fill: none;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+    }
   </style>
 </head>
 <body>
 
 <header class="hero">
+  <video class="gebirge-video" autoplay muted loop playsinline>
+    <source src="https://cdn.videvo.net/videvo_files/video/free/2018-08/small_watermarked/180807_03_A_Lake_and_Mountains_preview.webm" type="video/webm" />
+    <!-- Falls kein WebM, versuche mp4 -->
+    <source src="https://cdn.videvo.net/videvo_files/video/free/2018-08/small_watermarked/180807_03_A_Lake_and_Mountains_preview.mp4" type="video/mp4" />
+    Dein Browser unterstützt das Video-Tag nicht.
+  </video>
   <div>
     <h1>Klang ist Identität</h1>
     <p>Wir verwandeln Maschinenklänge in akustische Marken-DNA. Sound, der bleibt.</p>
@@ -180,9 +226,17 @@
   <p>Bushsounds kreiert markenspezifische Audio-Identitäten aus echten Geräuschen deines Unternehmens. Unverwechselbar. Authentisch. Wirkungsvoll.</p>
 </section>
 
-<section class="container">
+<section id="kontakt-section" class="container">
   <h2>Kontakt</h2>
   <p>Erzähl uns von deiner Marke – und wir machen sie hörbar.</p>
+
+  <!-- SVG Pfad Wald -->
+  <div id="wald-pfad-container">
+    <svg id="wald-pfad" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" aria-label="Waldpfad Animation">
+      <path d="M10 180 C150 100, 300 200, 400 100, 500 50, 600 150, 690 120" />
+    </svg>
+  </div>
+
   <form action="#" method="post">
     <input type="text" name="name" placeholder="Dein Name" required />
     <input type="email" name="email" placeholder="Deine E-Mail" required />
@@ -194,6 +248,62 @@
 <footer>
   &copy; 2025 Bushsounds. Klang ist Identität.
 </footer>
+
+<!-- Hintergrundmusik -->
+<audio id="background-music" src="sounds/background-music.mp3" loop preload="auto"></audio>
+
+<!-- GSAP + ScrollTrigger CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Video Zoom Animation beim Scrollen zum Kontakt-Abschnitt
+  gsap.to(".gebirge-video", {
+    scale: 0.5,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#kontakt-section",
+      start: "top center",
+      end: "bottom center",
+      scrub: true,
+    }
+  });
+
+  // SVG Pfad Animation (Wald-Pfad öffnet sich)
+  const path = document.querySelector("#wald-pfad path");
+  const pathLength = path.getTotalLength();
+
+  path.style.strokeDasharray = pathLength;
+  path.style.strokeDashoffset = pathLength;
+
+  gsap.to(path, {
+    strokeDashoffset: 0,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#kontakt-section",
+      start: "top center",
+      end: "bottom center",
+      scrub: true,
+    }
+  });
+
+  // Hintergrundmusik abspielen, wenn Nutzer scrollt (mobil meist nicht automatisch)
+  const bgMusic = document.getElementById("background-music");
+
+  function playMusic() {
+    if(bgMusic.paused) {
+      bgMusic.play().catch(() => {
+        // Play verboten (Browser Autoplay Policy)
+      });
+    }
+  }
+
+  // Starte Musik sobald Nutzer scrollt oder klickt
+  window.addEventListener("scroll", playMusic, { once: true });
+  window.addEventListener("click", playMusic, { once: true });
+</script>
 
 </body>
 </html>
