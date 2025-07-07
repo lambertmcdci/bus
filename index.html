@@ -3,377 +3,301 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bushsounds – Your Brand sounds like you. </title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<title>Bushsounds</title>
 <style>
-  /* Grundlegendes Reset */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* Grundreset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
   body {
-    font-family: 'Inter', sans-serif;
-    background-color: #fdfcf9;
-    color: #1a1a1a;
-    line-height: 1.7;
-    font-size: 18px;
-    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;
+    color: #333;
+    background: #fff;
   }
   a {
-    color: #2f4f4f;
+    color: #007BFF;
     text-decoration: none;
   }
-  a:hover {
-    text-decoration: underline;
-  }
 
-  /* Container */
-  .container {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  /* Hero Section */
-  header.hero {
+  /* --- Intro (Hero) --- */
+  #intro {
     position: relative;
     height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: white;
     text-align: center;
-    padding: 60px 24px;
-    background: #e8e6df;
-  }
-  header.hero h1 {
-    font-size: 3.5rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 10;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  }
-  header.hero p {
-    font-size: 1.25rem;
-    color: #4a4a4a;
-    margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    z-index: 10;
-  }
-  header.hero a.button {
-    background-color: #2f4f4f;
-    color: #fff;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: background 0.3s ease;
-    position: relative;
-    z-index: 10;
-    display: inline-block;
-  }
-  header.hero a.button:hover {
-    background-color: #1c3535;
-  }
-  /* Hero Video (Parallax + Zoom) */
-  .gebirge-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 130%;
-    max-height: 100vh;
-    transform: translate(-50%, -50%) scale(1);
-    object-fit: cover;
-    z-index: 1;
-    will-change: transform;
-    pointer-events: none;
-    filter: brightness(0.9);
-    transition: filter 0.3s ease;
-  }
-
-  /* Section Styles */
-  section {
-    padding: 100px 0;
-    background-color: #fff;
-  }
-  section h2 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  section p {
-    font-size: 1.1rem;
-    color: #555;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 60px auto;
-  }
-
-  /* Sound Showcase */
-  .sound-showcase {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: center;
-  }
-  .sound-card {
-    background: #f6f5f1;
-    border-radius: 12px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    text-align: center;
-  }
-  .sound-card h3 {
-    color: #2f4f4f;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-  }
-  .sound-card audio {
-    width: 100%;
-    border-radius: 6px;
-  }
-
-  /* Kontakt & Pfad */
-  #kontakt-section {
-    position: relative;
-  }
-  #wald-pfad-container {
-    max-width: 700px;
-    margin: 40px auto 80px;
-    text-align: center;
-  }
-  svg#wald-pfad {
-    width: 100%;
-    height: 200px;
-    stroke: #2f4f4f;
-    stroke-width: 4;
-    fill: none;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-  }
-  svg#wald-pfad-2 {
-    width: 100%;
-    height: 200px;
-    stroke: #4a6a6a;
-    stroke-width: 3;
-    fill: none;
-    stroke-dasharray: 900;
-    stroke-dashoffset: 900;
-    margin-top: -140px; /* Überlappt minimal für Effekt */
-    opacity: 0.7;
-  }
-
-  /* Kontaktformular */
-  form {
-    max-width: 500px;
-    margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    overflow: hidden;
   }
-  input, textarea {
-    padding: 14px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: border-color 0.3s ease;
+  #intro video,
+  #intro img {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
   }
-  input:focus, textarea:focus {
-    border-color: #2f4f4f;
-    outline: none;
+  #intro h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
   }
-  button[type="submit"] {
-    padding: 14px;
-    background-color: #2f4f4f;
-    color: #fff;
+  #intro p {
+    font-size: 1.8rem;
+    font-weight: 300;
+    max-width: 600px;
+    text-shadow: 0 0 8px rgba(0,0,0,0.5);
+  }
+
+  /* --- Was wir tun --- */
+  #steps {
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    background: #f0f4f8;
+  }
+  .step {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    flex: 1;
+    max-width: 300px;
+    text-align: center;
+  }
+  .step img {
+    width: 80px;
+    margin-bottom: 1rem;
+  }
+  .step h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  /* --- Warum Bushsounds --- */
+  #usp {
+    padding: 4rem 2rem;
+    background: #fff8f0;
+    font-family: 'Georgia', serif;
+    color: #5a3e1b;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .usp-item {
+    background: #fdeed3;
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(90,62,27,0.2);
+    max-width: 250px;
+    text-align: center;
+    flex: 1;
+  }
+  .usp-item h4 {
+    margin-bottom: 0.7rem;
+  }
+  .usp-item p {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  /* --- Ablauf (Timeline) --- */
+  #timeline {
+    padding: 4rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .timeline-line {
+    position: relative;
+    height: 4px;
+    background: #c1a25f;
+    margin: 3rem 0 4rem 0;
+    border-radius: 2px;
+  }
+  .timeline-point {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: #5a3e1b;
+    border-radius: 50%;
+    border: 3px solid #c1a25f;
+  }
+  /* Positioniere die Punkte an 4 gleichen Abständen */
+  .point1 { left: 0%; }
+  .point2 { left: 33%; }
+  .point3 { left: 66%; }
+  .point4 { left: 100%; transform: translate(-100%, -50%); }
+
+  .timeline-labels {
+    display: flex;
+    justify-content: space-between;
     font-weight: 600;
-    border: none;
+    color: #5a3e1b;
+  }
+
+  /* --- Showreel (Audioplayer) --- */
+  #showreel {
+    padding: 3rem 2rem;
+    background: #fafafa;
+    text-align: center;
+  }
+  #showreel h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #333;
+  }
+  audio {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  /* --- Kontakt --- */
+  #contact {
+    background: #333;
+    color: white;
+    padding: 3rem 2rem;
+    font-size: 1rem;
+  }
+  #contact form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  #contact label {
+    font-weight: 600;
+  }
+  #contact input, #contact textarea {
+    padding: 0.8rem 1rem;
     border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+  }
+  #contact textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  #contact button {
+    background: #c1a25f;
+    border: none;
+    color: #333;
+    padding: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
     cursor: pointer;
     transition: background 0.3s ease;
   }
-  button[type="submit"]:hover {
-    background-color: #1c3535;
+  #contact button:hover {
+    background: #a07d3e;
   }
-
-  /* Footer */
-  footer {
-    background: #1a1a1a;
-    color: #f6f5f1;
+  #contact p.direct-mail {
     text-align: center;
-    padding: 40px 20px;
-    font-size: 0.9rem;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    header.hero h1 {
-      font-size: 2.25rem;
-    }
-    header.hero p {
-      font-size: 1rem;
-    }
-    .sound-card {
-      width: 100%;
-    }
+    margin-top: 2rem;
+    font-style: italic;
   }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <video
-    class="gebirge-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    src="https://cdn.videvo.net/videvo_files/video/free/2018-08/small_watermarked/180807_03_A_Lake_and_Mountains_preview.mp4"
-    type="video/mp4"
-  ></video>
-  <div>
-    <h1>Klang ist Identität</h1>
-    <p>Wir verwandeln Maschinenklänge in akustische Marken-DNA. Sound, der bleibt.</p>
-    <a href="#sounds" class="button">Klänge entdecken</a>
-  </div>
-</header>
+<!-- Intro (Hero) -->
+<section id="intro">
+  <!-- Beispiel-Video -->
+  <video autoplay muted loop playsinline>
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4" />
+    <!-- Fallback Bild -->
+    Dein Browser unterstützt keine Videos.
+  </video>
+  <h1>Bushsounds</h1>
+  <p>Natürliche Klänge für deine Ruhe & Inspiration</p>
+</section>
 
-<section id="sounds" class="container">
-  <h2>Beispiele aus der Industrie</h2>
-  <p>Originalaufnahmen aus realen Produktionsumgebungen – klanglich veredelt.</p>
-  <div class="sound-showcase">
-    <div class="sound-card">
-      <h3>Autoreifen-Herstellung</h3>
-      <audio controls>
-        <source src="sounds/autoreifen.mp3" type="audio/mpeg" />
-        Dein Browser unterstützt das Audio-Tag nicht.
-      </audio>
-    </div>
-    <div class="sound-card">
-      <h3>Maschinenrauschen</h3>
-      <audio controls>
-        <source src="sounds/maschinenrauschen.mp3" type="audio/mpeg" />
-        Dein Browser unterstützt das Audio-Tag nicht.
-      </audio>
-    </div>
+<!-- Was wir tun -->
+<section id="steps">
+  <div class="step">
+    <img src="https://img.icons8.com/ios-filled/100/000000/plant-under-sun.png" alt="Step 1" />
+    <h3>Natürliche Sounds</h3>
+    <p>Ausgewählte Klänge direkt aus dem Wald.</p>
+  </div>
+  <div class="step">
+    <img src="https://img.icons8.com/ios-filled/100/000000/sound.png" alt="Step 2" />
+    <h3>Mix & Anpassung</h3>
+    <p>Individuelle Kompositionen nach deinem Wunsch.</p>
+  </div>
+  <div class="step">
+    <img src="https://img.icons8.com/ios-filled/100/000000/headphones.png" alt="Step 3" />
+    <h3>Entspannung pur</h3>
+    <p>Genieße deine persönliche Auszeit mit Bushsounds.</p>
   </div>
 </section>
 
-<section class="container">
-  <h2>Was wir tun</h2>
-  <p>Bushsounds kreiert markenspezifische Audio-Identitäten aus echten Geräuschen deines Unternehmens. Unverwechselbar. Authentisch. Wirkungsvoll.</p>
+<!-- Warum Bushsounds -->
+<section id="usp">
+  <div class="usp-item">
+    <h4>100% Natürlich</h4>
+    <p>Unsere Sounds stammen direkt aus unberührten Wäldern.</p>
+  </div>
+  <div class="usp-item">
+    <h4>Individuell</h4>
+    <p>Wir erstellen maßgeschneiderte Soundtracks für dich.</p>
+  </div>
+  <div class="usp-item">
+    <h4>Entspannend</h4>
+    <p>Unsere Klänge helfen dir zu entspannen und abzuschalten.</p>
+  </div>
 </section>
 
-<section id="kontakt-section" class="container">
+<!-- Ablauf (Timeline) -->
+<section id="timeline">
+  <div class="timeline-line">
+    <div class="timeline-point point1" title="Sound Aufnahme"></div>
+    <div class="timeline-point point2" title="Mix & Mastering"></div>
+    <div class="timeline-point point3" title="Feedback & Anpassung"></div>
+    <div class="timeline-point point4" title="Fertiges Produkt"></div>
+  </div>
+  <div class="timeline-labels">
+    <span>Aufnahme</span>
+    <span>Mix</span>
+    <span>Feedback</span>
+    <span>Fertig</span>
+  </div>
+</section>
+
+<!-- Showreel -->
+<section id="showreel">
+  <h2>Unsere Klänge</h2>
+  <audio controls>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+    Dein Browser unterstützt keinen Audio-Player.
+  </audio>
+</section>
+
+<!-- Kontakt -->
+<section id="contact">
   <h2>Kontakt</h2>
-  <p>Erzähl uns von deiner Marke – und wir machen sie hörbar.</p>
+  <form action="mailto:deine-email@example.com" method="post" enctype="text/plain" onsubmit="alert('Danke für deine Nachricht!');">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
 
-  <!-- SVG Pfad Wald -->
-  <div id="wald-pfad-container" aria-hidden="true">
-    <svg id="wald-pfad" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" >
-      <path d="M10 180 C150 100, 300 200, 400 100, 500 50, 600 150, 690 120" />
-    </svg>
-    <svg id="wald-pfad-2" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" >
-      <path d="M20 160 C180 110, 350 190, 450 110, 560 60, 640 160, 680 140" />
-    </svg>
-  </div>
+    <label for="email">E-Mail:</label>
+    <input type="email" id="email" name="email" required />
 
-  <form action="#" method="post">
-    <input type="text" name="name" placeholder="Dein Name" required />
-    <input type="email" name="email" placeholder="Deine E-Mail" required />
-    <textarea name="message" rows="5" placeholder="Deine Nachricht" required></textarea>
-    <button type="submit">Nachricht senden</button>
+    <label for="message">Nachricht:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Absenden</button>
   </form>
+  <p class="direct-mail">Oder schreibe uns direkt an: <a href="mailto:deine-email@example.com">deine-email@example.com</a></p>
 </section>
-
-<footer>
-  &copy; 2025 Bushsounds. Klang ist Identität.
-</footer>
-
-<!-- Hintergrundmusik -->
-<audio id="background-music" src="sounds/background-music.mp3" loop preload="auto"></audio>
-
-<!-- GSAP + ScrollTrigger CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-<script>
-  gsap.registerPlugin(ScrollTrigger);
-
-  const video = document.querySelector(".gebirge-video");
-  const bgMusic = document.getElementById("background-music");
-
-  // Parallax & Zoom Hero Video - bewegt sich sanft beim Scrollen
-  gsap.to(video, {
-    scale: 0.7,
-    y: "-10%",
-    ease: "none",
-    scrollTrigger: {
-      trigger: "header.hero",
-      start: "top top",
-      end: "bottom top",
-      scrub: true,
-    }
-  });
-
-  // Zoom heraus wenn Kontaktbereich kommt
-  gsap.to(video, {
-    scale: 0.5,
-    ease: "power1.out",
-    scrollTrigger: {
-      trigger: "#kontakt-section",
-      start: "top center",
-      end: "bottom center",
-      scrub: true,
-    }
-  });
-
-  // SVG Pfad Animationen (2 Pfade)
-  const paths = document.querySelectorAll("#wald-pfad path, #wald-pfad-2 path");
-  paths.forEach((path) => {
-    const length = path.getTotalLength();
-    path.style.strokeDasharray = length;
-    path.style.strokeDashoffset = length;
-
-    gsap.to(path, {
-      strokeDashoffset: 0,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#wald-pfad-container",
-        start: "top 80%",
-        end: "bottom 20%",
-        scrub: true,
-      }
-    });
-  });
-
-  // Hintergrundmusik steuern beim Scrollen
-  // Lautstärke wird bei Scroll im Bereich Sounds auf max, sonst leise
-  bgMusic.volume = 0;
-  bgMusic.play().catch(() => { /* Autoplay Verbot unterdrücken */ });
-
-  ScrollTrigger.create({
-    trigger: "#sounds",
-    start: "top center",
-    end: "bottom center",
-    onEnter: () => {
-      gsap.to(bgMusic, { volume: 0.15, duration: 2 });
-    },
-    onLeaveBack: () => {
-      gsap.to(bgMusic, { volume: 0, duration: 1 });
-    },
-    onLeave: () => {
-      gsap.to(bgMusic, { volume: 0, duration: 1 });
-    },
-    onEnterBack: () => {
-      gsap.to(bgMusic, { volume: 0.15, duration: 1 });
-    }
-  });
-</script>
 
 </body>
 </html>
