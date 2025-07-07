@@ -1,198 +1,240 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bushsounds – your brand sounds like you </title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #fdfcf9;
-      color: #1a1a1a;
-      line-height: 1.7;
-      font-size: 18px;
-    }
-    a {
-      color: #2f4f4f;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bushsounds – Your Brand sounds like you. </title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* Grundlegendes Reset */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fdfcf9;
+    color: #1a1a1a;
+    line-height: 1.7;
+    font-size: 18px;
+    overflow-x: hidden;
+  }
+  a {
+    color: #2f4f4f;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 
-    /* Hero Section */
-    header.hero {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #e8e6df;
-      text-align: center;
-      padding: 60px 24px;
-      overflow: hidden;
-    }
+  /* Container */
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero Section */
+  header.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    background: #e8e6df;
+  }
+  header.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  header.hero p {
+    font-size: 1.25rem;
+    color: #4a4a4a;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 10;
+  }
+  header.hero a.button {
+    background-color: #2f4f4f;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+  }
+  header.hero a.button:hover {
+    background-color: #1c3535;
+  }
+  /* Hero Video (Parallax + Zoom) */
+  .gebirge-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 130%;
+    max-height: 100vh;
+    transform: translate(-50%, -50%) scale(1);
+    object-fit: cover;
+    z-index: 1;
+    will-change: transform;
+    pointer-events: none;
+    filter: brightness(0.9);
+    transition: filter 0.3s ease;
+  }
+
+  /* Section Styles */
+  section {
+    padding: 100px 0;
+    background-color: #fff;
+  }
+  section h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  section p {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+  }
+
+  /* Sound Showcase */
+  .sound-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+  .sound-card {
+    background: #f6f5f1;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+  .sound-card h3 {
+    color: #2f4f4f;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  .sound-card audio {
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  /* Kontakt & Pfad */
+  #kontakt-section {
+    position: relative;
+  }
+  #wald-pfad-container {
+    max-width: 700px;
+    margin: 40px auto 80px;
+    text-align: center;
+  }
+  svg#wald-pfad {
+    width: 100%;
+    height: 200px;
+    stroke: #2f4f4f;
+    stroke-width: 4;
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+  svg#wald-pfad-2 {
+    width: 100%;
+    height: 200px;
+    stroke: #4a6a6a;
+    stroke-width: 3;
+    fill: none;
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    margin-top: -140px; /* Überlappt minimal für Effekt */
+    opacity: 0.7;
+  }
+
+  /* Kontaktformular */
+  form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  input, textarea {
+    padding: 14px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+  input:focus, textarea:focus {
+    border-color: #2f4f4f;
+    outline: none;
+  }
+  button[type="submit"] {
+    padding: 14px;
+    background-color: #2f4f4f;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  button[type="submit"]:hover {
+    background-color: #1c3535;
+  }
+
+  /* Footer */
+  footer {
+    background: #1a1a1a;
+    color: #f6f5f1;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
     header.hero h1 {
-      font-size: 3.5rem;
-      font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 10;
+      font-size: 2.25rem;
     }
     header.hero p {
-      font-size: 1.25rem;
-      color: #4a4a4a;
-      margin-bottom: 40px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      z-index: 10;
-    }
-    header.hero a.button {
-      background-color: #2f4f4f;
-      color: #fff;
-      padding: 14px 28px;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: background 0.3s ease;
-      position: relative;
-      z-index: 10;
-    }
-    header.hero a.button:hover {
-      background-color: #1c3535;
-    }
-
-    /* Video im Hero */
-    .gebirge-video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 120%;
-      height: auto;
-      max-height: 100vh;
-      transform: translate(-50%, -50%) scale(1);
-      object-fit: cover;
-      z-index: 1;
-      will-change: transform;
-      transition: transform 0.3s ease;
-      pointer-events: none;
-    }
-
-    /* Section Base */
-    section {
-      padding: 100px 0;
-      background-color: #fff;
-    }
-    section h2 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    section p {
-      font-size: 1.1rem;
-      color: #555;
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 60px auto;
-    }
-
-    /* Sound Showcase */
-    .sound-showcase {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      justify-content: center;
+      font-size: 1rem;
     }
     .sound-card {
-      background: #f6f5f1;
-      border-radius: 12px;
-      padding: 20px;
-      width: 300px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      text-align: center;
-    }
-    .sound-card h3 {
-      color: #2f4f4f;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
-    .sound-card audio {
       width: 100%;
     }
-
-    /* Kontaktformular */
-    form {
-      max-width: 500px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    input, textarea {
-      padding: 14px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    button[type="submit"] {
-      padding: 14px;
-      background-color: #2f4f4f;
-      color: #fff;
-      font-weight: 600;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button[type="submit"]:hover {
-      background-color: #1c3535;
-    }
-
-    footer {
-      background: #1a1a1a;
-      color: #f6f5f1;
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-    }
-
-    /* SVG Pfad Wald */
-    #wald-pfad-container {
-      max-width: 700px;
-      margin: 40px auto 80px;
-      text-align: center;
-    }
-    svg#wald-pfad {
-      width: 100%;
-      height: 200px;
-      stroke: #2f4f4f;
-      stroke-width: 4;
-      fill: none;
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 1000;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
 <header class="hero">
-  <video class="gebirge-video" autoplay muted loop playsinline>
-    <source src="https://cdn.videvo.net/videvo_files/video/free/2018-08/small_watermarked/180807_03_A_Lake_and_Mountains_preview.webm" type="video/webm" />
-    <!-- Falls kein WebM, versuche mp4 -->
-    <source src="https://cdn.videvo.net/videvo_files/video/free/2018-08/small_watermarked/180807_03_A_Lake_and_Mountains_preview.mp4" type="video/mp4" />
-    Dein Browser unterstützt das Video-Tag nicht.
-  </video>
+  <video
+    class="gebirge-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    src="https://cdn.videvo.net/videvo_files/video/free/2018-08/small_watermarked/180807_03_A_Lake_and_Mountains_preview.mp4"
+    type="video/mp4"
+  ></video>
   <div>
     <h1>Klang ist Identität</h1>
     <p>Wir verwandeln Maschinenklänge in akustische Marken-DNA. Sound, der bleibt.</p>
@@ -231,9 +273,12 @@
   <p>Erzähl uns von deiner Marke – und wir machen sie hörbar.</p>
 
   <!-- SVG Pfad Wald -->
-  <div id="wald-pfad-container">
-    <svg id="wald-pfad" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" aria-label="Waldpfad Animation">
+  <div id="wald-pfad-container" aria-hidden="true">
+    <svg id="wald-pfad" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
       <path d="M10 180 C150 100, 300 200, 400 100, 500 50, 600 150, 690 120" />
+    </svg>
+    <svg id="wald-pfad-2" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" >
+      <path d="M20 160 C180 110, 350 190, 450 110, 560 60, 640 160, 680 140" />
     </svg>
   </div>
 
@@ -259,50 +304,76 @@
 <script>
   gsap.registerPlugin(ScrollTrigger);
 
-  // Video Zoom Animation beim Scrollen zum Kontakt-Abschnitt
-  gsap.to(".gebirge-video", {
-    scale: 0.5,
-    ease: "none",
-    scrollTrigger: {
-      trigger: "#kontakt-section",
-      start: "top center",
-      end: "bottom center",
-      scrub: true,
-    }
-  });
-
-  // SVG Pfad Animation (Wald-Pfad öffnet sich)
-  const path = document.querySelector("#wald-pfad path");
-  const pathLength = path.getTotalLength();
-
-  path.style.strokeDasharray = pathLength;
-  path.style.strokeDashoffset = pathLength;
-
-  gsap.to(path, {
-    strokeDashoffset: 0,
-    ease: "none",
-    scrollTrigger: {
-      trigger: "#kontakt-section",
-      start: "top center",
-      end: "bottom center",
-      scrub: true,
-    }
-  });
-
-  // Hintergrundmusik abspielen, wenn Nutzer scrollt (mobil meist nicht automatisch)
+  const video = document.querySelector(".gebirge-video");
   const bgMusic = document.getElementById("background-music");
 
-  function playMusic() {
-    if(bgMusic.paused) {
-      bgMusic.play().catch(() => {
-        // Play verboten (Browser Autoplay Policy)
-      });
+  // Parallax & Zoom Hero Video - bewegt sich sanft beim Scrollen
+  gsap.to(video, {
+    scale: 0.7,
+    y: "-10%",
+    ease: "none",
+    scrollTrigger: {
+      trigger: "header.hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
     }
-  }
+  });
 
-  // Starte Musik sobald Nutzer scrollt oder klickt
-  window.addEventListener("scroll", playMusic, { once: true });
-  window.addEventListener("click", playMusic, { once: true });
+  // Zoom heraus wenn Kontaktbereich kommt
+  gsap.to(video, {
+    scale: 0.5,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: "#kontakt-section",
+      start: "top center",
+      end: "bottom center",
+      scrub: true,
+    }
+  });
+
+  // SVG Pfad Animationen (2 Pfade)
+  const paths = document.querySelectorAll("#wald-pfad path, #wald-pfad-2 path");
+  paths.forEach((path) => {
+    const length = path.getTotalLength();
+    path.style.strokeDasharray = length;
+    path.style.strokeDashoffset = length;
+
+    gsap.to(path, {
+      strokeDashoffset: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#wald-pfad-container",
+        start: "top 80%",
+        end: "bottom 20%",
+        scrub: true,
+      }
+    });
+  });
+
+  // Hintergrundmusik steuern beim Scrollen
+  // Lautstärke wird bei Scroll im Bereich Sounds auf max, sonst leise
+  bgMusic.volume = 0;
+  bgMusic.play().catch(() => { /* Autoplay Verbot */ });
+
+  ScrollTrigger.create({
+    trigger: "#sounds",
+    start: "top center",
+    end: "bottom center",
+    onEnter: () => {
+      gsap.to(bgMusic, { volume: 0.15, duration: 2 });
+    },
+    onLeaveBack: () => {
+      gsap.to(bgMusic, { volume: 0, duration: 1 });
+    },
+    onLeave: () => {
+      gsap.to(bgMusic, { volume: 0, duration: 1 });
+    },
+    onEnterBack: () => {
+      gsap.to(bgMusic, { volume: 0.15, duration: 1 });
+    }
+  });
+
 </script>
 
 </body>
