@@ -4,17 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bushsounds – Your Brand sounds like you. </title>
-
-<!-- Schriftfamilien Josefin Sans und Century Gothic -->
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 <style>
-  /* Grundreset */
+  /* Grundlegendes Reset */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  /* Body Fonts: primär Josefin Sans, fallback Century Gothic, fallback sans-serif */
   body {
-    font-family: 'Josefin Sans', 'Century Gothic', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: #fdfcf9;
     color: #1a1a1a;
     line-height: 1.7;
@@ -29,12 +24,14 @@
     text-decoration: underline;
   }
 
+  /* Container */
   .container {
     max-width: 1080px;
     margin: 0 auto;
     padding: 0 24px;
   }
 
+  /* Hero Section */
   header.hero {
     position: relative;
     height: 100vh;
@@ -54,7 +51,6 @@
     position: relative;
     z-index: 10;
     text-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    font-family: 'Josefin Sans', 'Century Gothic', sans-serif;
   }
   header.hero p {
     font-size: 1.25rem;
@@ -65,43 +61,22 @@
     margin-right: auto;
     position: relative;
     z-index: 10;
-    font-family: 'Josefin Sans', 'Century Gothic', sans-serif;
   }
-
-  /* Neuer dynamischer Read More Button (angepasst auf primary) */
-  a.read-more-button {
+  header.hero a.button {
+    background-color: #2f4f4f;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background 0.3s ease;
     position: relative;
-    width: 2.5rem;
-    height: 2.5rem;
-    display: inline-block;
-    border-radius: 50%;
-    border: 2px solid #8cb4d5;
-    background: transparent;
-    cursor: pointer;
-    transition: background 0.4s ease, border-color 0.4s ease;
-    vertical-align: middle;
     z-index: 10;
+    display: inline-block;
   }
-  a.read-more-button .arrow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0.375rem;
-    height: 0.375rem;
-    border-right: 2px solid #8cb4d5;
-    border-bottom: 2px solid #8cb4d5;
-    transform: translate(-50%, -50%) rotate(45deg);
-    transition: border-color 0.4s ease;
+  header.hero a.button:hover {
+    background-color: #1c3535;
   }
-  a.read-more-button.primary:hover {
-    background-color: #8cb4d5;
-    border-color: #fff;
-  }
-  a.read-more-button.primary:hover .arrow {
-    border-color: #fff;
-  }
-
-  /* Hero Video */
+  /* Hero Video (Parallax + Zoom) */
   .gebirge-video {
     position: absolute;
     top: 50%;
@@ -117,7 +92,122 @@
     transition: filter 0.3s ease;
   }
 
-  /* Rest Styles unverändert, hier gekürzt für Übersichtlichkeit */
+  /* Section Styles */
+  section {
+    padding: 100px 0;
+    background-color: #fff;
+  }
+  section h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  section p {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+  }
+
+  /* Sound Showcase */
+  .sound-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+  .sound-card {
+    background: #f6f5f1;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+  .sound-card h3 {
+    color: #2f4f4f;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  .sound-card audio {
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  /* Kontakt & Pfad */
+  #kontakt-section {
+    position: relative;
+  }
+  #wald-pfad-container {
+    max-width: 700px;
+    margin: 40px auto 80px;
+    text-align: center;
+  }
+  svg#wald-pfad {
+    width: 100%;
+    height: 200px;
+    stroke: #2f4f4f;
+    stroke-width: 4;
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+  svg#wald-pfad-2 {
+    width: 100%;
+    height: 200px;
+    stroke: #4a6a6a;
+    stroke-width: 3;
+    fill: none;
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    margin-top: -140px; /* Überlappt minimal für Effekt */
+    opacity: 0.7;
+  }
+
+  /* Kontaktformular */
+  form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  input, textarea {
+    padding: 14px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+  input:focus, textarea:focus {
+    border-color: #2f4f4f;
+    outline: none;
+  }
+  button[type="submit"] {
+    padding: 14px;
+    background-color: #2f4f4f;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  button[type="submit"]:hover {
+    background-color: #1c3535;
+  }
+
+  /* Footer */
+  footer {
+    background: #1a1a1a;
+    color: #f6f5f1;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+  }
 
   /* Responsive */
   @media (max-width: 600px) {
@@ -126,6 +216,9 @@
     }
     header.hero p {
       font-size: 1rem;
+    }
+    .sound-card {
+      width: 100%;
     }
   }
 </style>
@@ -145,14 +238,9 @@
   <div>
     <h1>Klang ist Identität</h1>
     <p>Wir verwandeln Maschinenklänge in akustische Marken-DNA. Sound, der bleibt.</p>
-    <!-- Neuer dynamischer Button mit Pfeil und Hovereffekt -->
-    <a href="#sounds" class="read-more-button primary" aria-label="Klänge entdecken">
-      <span class="arrow"></span>
-    </a>
+    <a href="#sounds" class="button">Klänge entdecken</a>
   </div>
 </header>
-
-<!-- Rest bleibt unverändert -->
 
 <section id="sounds" class="container">
   <h2>Beispiele aus der Industrie</h2>
@@ -175,8 +263,6 @@
   </div>
 </section>
 
-<!-- Rest bleibt unverändert -->
-
 <section class="container">
   <h2>Was wir tun</h2>
   <p>Bushsounds kreiert markenspezifische Audio-Identitäten aus echten Geräuschen deines Unternehmens. Unverwechselbar. Authentisch. Wirkungsvoll.</p>
@@ -188,7 +274,7 @@
 
   <!-- SVG Pfad Wald -->
   <div id="wald-pfad-container" aria-hidden="true">
-    <svg id="wald-pfad" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+    <svg id="wald-pfad" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" >
       <path d="M10 180 C150 100, 300 200, 400 100, 500 50, 600 150, 690 120" />
     </svg>
     <svg id="wald-pfad-2" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" >
@@ -221,7 +307,7 @@
   const video = document.querySelector(".gebirge-video");
   const bgMusic = document.getElementById("background-music");
 
-  // Parallax & Zoom Hero Video
+  // Parallax & Zoom Hero Video - bewegt sich sanft beim Scrollen
   gsap.to(video, {
     scale: 0.7,
     y: "-10%",
@@ -234,6 +320,7 @@
     }
   });
 
+  // Zoom heraus wenn Kontaktbereich kommt
   gsap.to(video, {
     scale: 0.5,
     ease: "power1.out",
@@ -245,7 +332,7 @@
     }
   });
 
-  // SVG Pfad Animationen
+  // SVG Pfad Animationen (2 Pfade)
   const paths = document.querySelectorAll("#wald-pfad path, #wald-pfad-2 path");
   paths.forEach((path) => {
     const length = path.getTotalLength();
@@ -265,17 +352,26 @@
   });
 
   // Hintergrundmusik steuern beim Scrollen
+  // Lautstärke wird bei Scroll im Bereich Sounds auf max, sonst leise
   bgMusic.volume = 0;
-  bgMusic.play().catch(() => { /* Autoplay Verbot */ });
+  bgMusic.play().catch(() => { /* Autoplay Verbot unterdrücken */ });
 
   ScrollTrigger.create({
     trigger: "#sounds",
     start: "top center",
     end: "bottom center",
-    onEnter: () => { gsap.to(bgMusic, { volume: 0.15, duration: 2 }); },
-    onLeaveBack: () => { gsap.to(bgMusic, { volume: 0, duration: 1 }); },
-    onLeave: () => { gsap.to(bgMusic, { volume: 0, duration: 1 }); },
-    onEnterBack: () => { gsap.to(bgMusic, { volume: 0.15, duration: 1 }); }
+    onEnter: () => {
+      gsap.to(bgMusic, { volume: 0.15, duration: 2 });
+    },
+    onLeaveBack: () => {
+      gsap.to(bgMusic, { volume: 0, duration: 1 });
+    },
+    onLeave: () => {
+      gsap.to(bgMusic, { volume: 0, duration: 1 });
+    },
+    onEnterBack: () => {
+      gsap.to(bgMusic, { volume: 0.15, duration: 1 });
+    }
   });
 </script>
 
